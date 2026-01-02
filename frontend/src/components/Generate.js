@@ -51,9 +51,11 @@ const Generate = () => {
     setError(null);
     setGeneratedData(null);
 
+    const cleanApiUrl = API_BASE_URL.replace(/\/$/, "");
+
     try {
       const response = await axios.post(
-        `${API_BASE_URL}/generate/`,
+        `${cleanApiUrl}/generate/`,
         { num_samples: numRows },
         {
           headers: {
@@ -100,9 +102,11 @@ const Generate = () => {
     setTrainingError(null);
     setTrainingResult(null);
 
+    const cleanApiUrl = API_BASE_URL.replace(/\/$/, "");
+
     try {
       const response = await axios.post(
-        `${API_BASE_URL}/train/`,
+        `${cleanApiUrl}/train/`,
         { 
           num_synthetic_samples: numSyntheticSamples,
           use_synthetic_data: useSyntheticData,

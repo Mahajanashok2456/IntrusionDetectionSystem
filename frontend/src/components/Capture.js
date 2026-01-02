@@ -55,9 +55,11 @@ const Capture = () => {
     setError(null);
     setCapturedData(null);
 
+    const cleanApiUrl = API_BASE_URL.replace(/\/$/, "");
+
     try {
       const response = await axios.post(
-        `${API_BASE_URL}/capture/`,
+        `${cleanApiUrl}/capture/`,
         { duration: captureDuration },
         {
           headers: {
@@ -114,8 +116,9 @@ const Capture = () => {
              setError(null);
              setCapturedData(null);
              try {
+                const cleanApiUrl = API_BASE_URL.replace(/\/$/, "");
                 const response = await axios.post(
-                   `${API_BASE_URL}/capture/analyze`, 
+                   `${cleanApiUrl}/capture/analyze`, 
                    { duration: captureDuration },
                   { headers: { Authorization: `Bearer ${token}` } }
                 );

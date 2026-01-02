@@ -36,11 +36,12 @@ const Predict = () => {
     formData.append("file", file);
 
     try {
+      const cleanApiUrl = API_BASE_URL.replace(/\/$/, "");
       // Determine endpoint based on file type
       const isCSV = file.name.toLowerCase().endsWith('.csv');
       const endpoint = isCSV ? 
-        `${API_BASE_URL}/predict/` : 
-        `${API_BASE_URL}/predict/pcap`;
+        `${cleanApiUrl}/predict/` : 
+        `${cleanApiUrl}/predict/pcap`;
 
       const response = await axios.post(
         endpoint,
