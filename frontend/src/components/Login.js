@@ -56,11 +56,12 @@ function Login() {
     setError('');
     console.log("DEBUG: Using API URL:", API_BASE_URL); // Debugging line
 
+    const formData = new URLSearchParams();
+    formData.append('username', username);
+    formData.append('password', password);
+
     try {
-      const response = await axios.post(`${API_BASE_URL}/auth/token`, new URLSearchParams({
-        username: username,
-        password: password,
-      }), {
+      const response = await axios.post(`${API_BASE_URL}/auth/token`, formData, {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
