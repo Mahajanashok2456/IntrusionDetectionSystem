@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
-import { useAuth } from "../context/AuthContext";
 import "./Generate.css";
 import API_BASE_URL from "../config";
 
