@@ -21,3 +21,7 @@ app.include_router(ids_router, prefix="/predict", tags=["predict"])
 app.include_router(ctgan_router, prefix="/generate", tags=["generate"])
 app.include_router(capture_router, prefix="/capture", tags=["capture"])
 app.include_router(training_router, prefix="/train", tags=["training"])
+
+@app.get("/")
+async def root():
+    return {"message": "Intrusion Detection System API is running"}
