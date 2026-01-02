@@ -54,6 +54,7 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError('');
+    console.log("DEBUG: Using API URL:", API_BASE_URL); // Debugging line
 
     try {
       const response = await axios.post(`${API_BASE_URL}/auth/token`, new URLSearchParams({
