@@ -20,6 +20,7 @@ Thumbs.db
 
 # Project specific
 models/
+!backend/src/models/
 coverage/
 build/
 dist/
