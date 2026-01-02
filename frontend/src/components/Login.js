@@ -67,8 +67,18 @@ function Login() {
       login(response.data.access_token);
       navigate('/home');
     } catch (err) {
-      setError('Invalid credentials or server error.');
       console.error('Login error:', err);
+      if (err.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        setError(`Login failed: ${err.response.status} ${err.response.data?.detail || err.response.statusText}`);
+      } else if (err.request) {
+        // The request was made but no response was received
+        setError('Network Error: No response from server. Check your connection or API URL.');
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        setError(`Error: ${err.message}`);
+      }
     }
   };
 
