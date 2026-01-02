@@ -1,0 +1,224 @@
+/* Falling Numbers Animation */
+.falling-number {
+  position: absolute;
+  top: -20px;
+  color: #ff0040;
+  font-family: 'Courier New', monospace;
+  font-size: 18px;
+  font-weight: bold;
+  pointer-events: none;
+  z-index: 1;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+/* Capture Page Styling */
+.capture-container {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 50px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Orbitron', 'Arial', sans-serif;
+}
+
+.capture-title {
+  color: #00ffcc;
+  font-size: 3.5em;
+  font-weight: bold;
+  text-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc, 0 0 60px #00ffcc;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+.input-section {
+  background: rgba(0, 255, 204, 0.1);
+  border: 2px solid #00ffcc;
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 30px rgba(0, 255, 204, 0.3);
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+.label {
+  color: #00ffff;
+  font-size: 1.4em;
+  font-weight: bold;
+  text-shadow: 0 0 10px #00ffff;
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* Input Field */
+.input-field {
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid #00ffcc;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1.2em;
+  color: #00ffcc;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: inset 0 0 10px rgba(0, 255, 204, 0.2);
+  transition: all 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #00ffff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  color: #00ffff;
+}
+
+/* Button Styling */
+.capture-button {
+  background: linear-gradient(45deg, #ff0040, #ff4080);
+  border: 2px solid #ff0040;
+  border-radius: 10px;
+  padding: 15px 30px;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 0, 64, 0.3);
+  position: relative;
+  z-index: 10;
+}
+
+.capture-button:hover {
+  background: linear-gradient(45deg, #ff4080, #ff0040);
+  box-shadow: 0 0 30px rgba(255, 0, 64, 0.6);
+  transform: translateY(-2px);
+}
+
+.capture-button:disabled {
+  background: rgba(128, 128, 128, 0.5);
+  border-color: #666;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.captured-data-results {
+  background: rgba(0, 255, 204, 0.1);
+  border: 2px solid #00ffcc;
+  border-radius: 15px;
+  padding: 30px;
+  margin-top: 30px;
+  box-shadow: 0 0 30px rgba(0, 255, 204, 0.3);
+  position: relative;
+  z-index: 10;
+}
+
+.results-title {
+  color: #00ffcc;
+  font-size: 2.2em;
+  font-weight: bold;
+  text-shadow: 0 0 15px #00ffcc;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.success-message {
+  color: #00ff00;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-shadow: 0 0 10px #00ff00;
+  text-align: center;
+}
+
+/* Scrollable Table Container */
+.table-container {
+  margin-top: 20px;
+  width: 100%;
+  overflow-x: auto;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  border: 1px solid #00ffcc;
+}
+
+.scrollable-table {
+  min-width: 600px;
+}
+
+/* CSV Table */
+.csv-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.csv-table th, .csv-table td {
+  border: 1px solid #00ffcc;
+  padding: 12px;
+  text-align: left;
+  color: #00ffcc;
+  font-family: 'Courier New', monospace;
+}
+
+.csv-table th {
+  background-color: rgba(0, 255, 204, 0.2);
+  color: #00ffff;
+  font-weight: bold;
+  text-shadow: 0 0 5px #00ffff;
+}
+
+.csv-table tr:nth-child(even) {
+  background-color: rgba(0, 255, 204, 0.05);
+}
+
+.csv-table tr:hover {
+  background-color: rgba(0, 255, 204, 0.15);
+}
+
+/* Error Message */
+.error-message {
+  color: #ff0040;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-shadow: 0 0 10px #ff0040;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Download Button */
+.download-button {
+  background: linear-gradient(45deg, #0080ff, #40a0ff);
+  border: 2px solid #0080ff;
+  border-radius: 10px;
+  padding: 15px 30px;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 128, 255, 0.3);
+  margin-top: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.download-button:hover {
+  background: linear-gradient(45deg, #40a0ff, #0080ff);
+  box-shadow: 0 0 30px rgba(0, 128, 255, 0.6);
+  transform: translateY(-2px);
+}

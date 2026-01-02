@@ -1,0 +1,245 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern sans-serif font */
+    margin: 0;
+    padding: 0;
+    background-color: #0a0a1a; /* Dark background for the whole page */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.matrix-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.matrix-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(to bottom, transparent, transparent 10px, rgba(0, 255, 0, 0.25) 11px, rgba(0, 255, 0, 0.25) 12px); /* Increased transparency for the lines */
+    animation: matrix-flow 10s linear infinite;
+}
+
+.matrix-background span {
+    position: absolute;
+    color: #0f0;
+    font-size: 1.2em;
+    font-family: 'monospace';
+    opacity: 0;
+    animation: fade-in-out 5s linear infinite;
+}
+
+@keyframes matrix-flow {
+    from { background-position: 0 0; }
+    to { background-position: 0 1000px; } /* Flow from top to bottom */
+}
+
+@keyframes fade-in-out {
+    0% { opacity: 0; transform: translateY(-100%); }
+    20% { opacity: 1; transform: translateY(0); }
+    80% { opacity: 1; transform: translateY(calc(100vh - 1.2em)); } /* Adjust to end at bottom of viewport */
+    100% { opacity: 0; transform: translateY(100vh); }
+}
+
+.landing-container {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Use min-height to allow content to expand */
+    background: linear-gradient(135deg, rgba(10, 10, 26, 0.7) 0%, rgba(26, 26, 58, 0.7) 100%); /* Subtle gradient background with increased transparency */
+    color: #e0e0e0; /* Light gray text for better contrast */
+    text-align: center;
+    overflow: hidden; /* Hide overflow for animations */
+    padding: 20px;
+    z-index: 1; /* Ensure content is above the matrix background */
+}
+
+.landing-container::before {
+    content: none; /* Remove the previous background pattern */
+}
+
+.landing-header {
+    z-index: 1;
+    margin-bottom: 40px;
+}
+
+.landing-header h1 {
+    font-size: 4.5rem; /* Larger heading */
+    margin-bottom: 15px;
+    color: #00c6ff; /* Bright blue for main heading */
+    text-shadow: 0 0 15px rgba(0, 198, 255, 0.6); /* Neon glow effect */
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: slide-in 1s forwards cubic-bezier(0.2, 0.8, 0.2, 1); /* Smoother animation */
+    animation-delay: 0.3s;
+}
+
+.landing-header p {
+    font-size: 1.6rem;
+    color: #b0e0e6; /* Lighter blue for description */
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slide-in 1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation-delay: 0.6s;
+}
+
+.landing-main {
+    z-index: 1;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.feature-item {
+    background-color: rgba(26, 26, 58, 0.8); /* Darker background for feature cards */
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #00c6ff; /* Blue border */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slide-in 1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.feature-item:nth-child(1) { animation-delay: 0.9s; }
+.feature-item:nth-child(2) { animation-delay: 1.2s; }
+.feature-item:nth-child(3) { animation-delay: 1.5s; }
+
+.feature-item:hover {
+    transform: translateY(-5px) scale(1.02); /* Lift and slightly enlarge on hover */
+    box-shadow: 0 8px 25px rgba(0, 198, 255, 0.4);
+}
+
+.feature-item h2 {
+    font-size: 2rem;
+    color: #00e6ff; /* Brighter blue for feature titles */
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(0, 230, 255, 0.5);
+}
+
+.feature-item p {
+    font-size: 1.1rem;
+    color: #c0f0f6;
+    line-height: 1.6;
+    margin-bottom: 0;
+    opacity: 1; /* Ensure paragraphs are visible */
+    transform: none; /* Reset transform for paragraphs within feature items */
+    animation: none; /* Reset animation for paragraphs within feature items */
+}
+
+.call-to-action {
+    z-index: 1;
+    margin-top: 40px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slide-in 1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation-delay: 1.8s;
+}
+
+.enter-app-button {
+    display: inline-block;
+    padding: 15px 40px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffffff;
+    background: linear-gradient(45deg, #007bff, #00c6ff); /* Blue gradient button */
+    border: none;
+    border-radius: 50px; /* Pill-shaped button */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 123, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.enter-app-button:hover {
+    background: linear-gradient(45deg, #0056b3, #00aaff); /* Darker gradient on hover */
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.6);
+}
+
+.landing-footer {
+    z-index: 1;
+    margin-top: 60px;
+    padding: 20px;
+    color: #8888aa; /* Muted color for footer text */
+    font-size: 0.9rem;
+    opacity: 0;
+    animation: fade-in 1s forwards;
+    animation-delay: 2.1s;
+}
+
+@keyframes slide-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .landing-header h1 {
+        font-size: 3rem;
+    }
+
+    .landing-header p {
+        font-size: 1.2rem;
+    }
+
+    .features {
+        grid-template-columns: 1fr; /* Stack features on small screens */
+    }
+
+    .feature-item {
+        padding: 20px;
+    }
+
+    .feature-item h2 {
+        font-size: 1.6rem;
+    }
+
+    .feature-item p {
+        font-size: 1rem;
+    }
+
+    .enter-app-button {
+        padding: 12px 30px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .landing-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .landing-header p {
+        font-size: 1rem;
+    }
+}

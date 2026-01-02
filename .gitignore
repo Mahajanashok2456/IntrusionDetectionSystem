@@ -1,0 +1,25 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+models/
+coverage/
+build/
+dist/

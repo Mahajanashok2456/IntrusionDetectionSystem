@@ -1,0 +1,125 @@
+/* Login.css */
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgba(10, 10, 26, 0.9), rgba(26, 26, 58, 0.9));
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Falling Numbers Animation */
+.falling-number {
+  position: absolute;
+  top: -50px;
+  color: #ff0000;
+  font-family: 'Courier New', monospace;
+  font-size: 18px;
+  font-weight: bold;
+  pointer-events: none;
+  z-index: 0;
+  animation: fall linear forwards;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-50px);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.login-container h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  color: #00ffcc; /* Neon green */
+  text-shadow: 0 0 10px rgba(0, 255, 204, 0.6);
+  position: relative;
+  z-index: 10;
+}
+
+.login-container form {
+  background: rgba(30, 30, 60, 0.95); /* Darker, slightly transparent background */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 255, 204, 0.2), 0 0 50px rgba(0, 255, 204, 0.1);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 255, 204, 0.3);
+  position: relative;
+  z-index: 10;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #a0a0a0;
+  font-size: 1em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #00ffcc; /* Neon green border */
+  border-radius: 8px;
+  background-color: rgba(15, 15, 40, 0.7); /* Dark input background */
+  color: #e0e0e0;
+  font-size: 1em;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
+  outline: none;
+  border-color: #00ffff; /* Brighter neon on focus */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+.login-container button[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(90deg, #00ffcc, #00ffff); /* Neon gradient */
+  color: #1a1a2e;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+}
+
+.login-container button[type="submit"]:hover {
+  background: linear-gradient(90deg, #00ffff, #00ffcc); /* Reverse gradient on hover */
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+.error-message {
+  color: #ff6b6b; /* Red for errors */
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 0.95em;
+  background-color: rgba(255, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ff6b6b;
+}

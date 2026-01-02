@@ -1,0 +1,565 @@
+/* Ethical Hacking / Cybersecurity Theme */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap');
+
+.predict-container {
+  min-height: 100vh;
+  background: #0a0a0a;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(0, 255, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 255, 0, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(0, 255, 0, 0.08) 0%, transparent 50%),
+    linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Fira Code', monospace;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.predict-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 0, 0.03) 2px,
+      rgba(0, 255, 0, 0.03) 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 0, 0.03) 2px,
+      rgba(0, 255, 0, 0.03) 4px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.predict-container > * {
+  position: relative;
+  z-index: 2;
+}
+
+.predict-title {
+  color: #00ff00;
+  font-family: 'Orbitron', monospace;
+  font-size: 3.5rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 3rem;
+  text-shadow: 
+    0 0 10px #00ff00,
+    0 0 20px #00ff00,
+    0 0 30px #00ff00,
+    0 0 40px #00ff00;
+  letter-spacing: 2px;
+  animation: glitch 2s infinite;
+  position: relative;
+}
+
+.predict-title::before {
+  content: '> INTRUSION_DETECTION_SYSTEM';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #ff0000;
+  animation: glitch-1 0.5s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.predict-title::after {
+  content: '> INTRUSION_DETECTION_SYSTEM';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #0000ff;
+  animation: glitch-2 0.5s infinite;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch-1 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(2px, -2px); }
+  40% { transform: translate(-2px, 2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(-2px, -2px); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(2px, 2px); }
+}
+
+.upload-section {
+  background: rgba(0, 0, 0, 0.9);
+  border: 2px solid #00ff00;
+  border-radius: 0;
+  padding: 3rem;
+  box-shadow: 
+    0 0 20px rgba(0, 255, 0, 0.3),
+    inset 0 0 20px rgba(0, 255, 0, 0.1);
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.upload-section::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #00ff00, #00aa00, #00ff00);
+  z-index: -1;
+  animation: borderGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes borderGlow {
+  0% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.upload-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 10px 30px rgba(0, 255, 0, 0.4),
+    inset 0 0 30px rgba(0, 255, 0, 0.2);
+}
+
+.file-input-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.file-input-container::before {
+  content: '$ select_target_file --type=[csv|pcap] --scan=true';
+  position: absolute;
+  top: -30px;
+  left: 0;
+  color: #00ff00;
+  font-size: 0.8rem;
+  font-family: 'Fira Code', monospace;
+  opacity: 0.7;
+}
+
+.file-input {
+  width: 100%;
+  padding: 1.5rem;
+  border: 1px solid #00ff00;
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: #00ff00;
+  font-size: 1rem;
+  font-family: 'Fira Code', monospace;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.file-input:hover {
+  border-color: #00aa00;
+  background: rgba(0, 255, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.file-input:focus {
+  outline: none;
+  border-color: #00ff00;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+
+.upload-button {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  background: rgba(0, 0, 0, 0.9);
+  color: #00ff00;
+  border: 2px solid #00ff00;
+  border-radius: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: 'Fira Code', monospace;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-button::before {
+  content: '> EXECUTE_SCAN';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.upload-button:hover::before {
+  opacity: 1;
+}
+
+.upload-button:hover {
+  background: rgba(0, 255, 0, 0.1);
+  box-shadow: 
+    0 0 20px rgba(0, 255, 0, 0.5),
+    inset 0 0 20px rgba(0, 255, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.upload-button:active {
+  transform: translateY(0);
+}
+
+.upload-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.error-message {
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid #ff0000;
+  color: #ff0000;
+  padding: 1rem 1.5rem;
+  border-radius: 0;
+  margin: 1rem 0;
+  font-weight: 500;
+  font-family: 'Fira Code', monospace;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  animation: errorPulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes errorPulse {
+  0% { box-shadow: 0 0 10px rgba(255, 0, 0, 0.3); }
+  100% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); }
+}
+
+.prediction-results {
+  width: 100%;
+  max-width: 1200px;
+  animation: terminalBoot 1s ease;
+}
+
+@keyframes terminalBoot {
+  0% { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.results-title {
+  color: #00ff00;
+  font-family: 'Orbitron', monospace;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px #00ff00;
+  letter-spacing: 1px;
+}
+
+.results-title::before {
+  content: '>>> SCAN_RESULTS_ANALYSIS <<<';
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+.pcap-results {
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid #00ff00;
+  border-radius: 0;
+  padding: 2.5rem;
+  box-shadow: 
+    0 0 30px rgba(0, 255, 0, 0.2),
+    inset 0 0 30px rgba(0, 255, 0, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.summary-section {
+  background: rgba(0, 255, 0, 0.1);
+  border: 1px solid #00ff00;
+  color: #00ff00;
+  padding: 2rem;
+  border-radius: 0;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+  position: relative;
+}
+
+.summary-section::before {
+  content: '[THREAT_ASSESSMENT]';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: #0a0a0a;
+  padding: 0 10px;
+  font-size: 0.8rem;
+  color: #00ff00;
+  font-family: 'Fira Code', monospace;
+}
+
+.summary-section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-family: 'Orbitron', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.summary-section p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  font-weight: 500;
+  font-family: 'Fira Code', monospace;
+}
+
+.connections-section h3 {
+  color: #00ff00;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  font-family: 'Orbitron', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.connections-section h3::before {
+  content: '[DETAILED_ANALYSIS] ';
+  color: #00aa00;
+  font-size: 1rem;
+}
+
+.connections-table {
+  display: grid;
+  gap: 1rem;
+}
+
+.connection-row {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid;
+  border-radius: 0;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  font-family: 'Fira Code', monospace;
+}
+
+.connection-row::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #00ff00, transparent);
+  animation: scanLine 2s ease-in-out infinite;
+}
+
+@keyframes scanLine {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.connection-row:hover {
+  transform: translateX(5px);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+.connection-row.normal {
+  border-color: #00ff00;
+  background: rgba(0, 255, 0, 0.05);
+}
+
+.connection-row.attack {
+  border-color: #ff0000;
+  background: rgba(255, 0, 0, 0.05);
+  animation: threatAlert 1s ease-in-out infinite alternate;
+}
+
+@keyframes threatAlert {
+  0% { box-shadow: 0 0 10px rgba(255, 0, 0, 0.3); }
+  100% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); }
+}
+
+.connection-row div {
+  margin: 0.3rem 0;
+  font-weight: 500;
+  color: #00ff00;
+  font-size: 0.9rem;
+}
+
+.connection-row.attack div {
+  color: #ff6666;
+}
+
+.prediction-label {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid;
+  border-radius: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  font-family: 'Fira Code', monospace;
+}
+
+.normal .prediction-label {
+  background: rgba(0, 255, 0, 0.1);
+  color: #00ff00;
+  border-color: #00ff00;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.attack .prediction-label {
+  background: rgba(255, 0, 0, 0.1);
+  color: #ff0000;
+  border-color: #ff0000;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  animation: dangerBlink 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes dangerBlink {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.more-results {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(0, 255, 0, 0.05);
+  border: 1px dashed #00ff00;
+  border-radius: 0;
+  color: #00ff00;
+  font-weight: 600;
+  font-size: 1.1rem;
+  font-family: 'Fira Code', monospace;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.1);
+}
+
+.more-results::before {
+  content: '[ADDITIONAL_DATA] ';
+  color: #00aa00;
+  font-size: 0.9rem;
+}
+
+.prediction-output {
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid #00ff00;
+  border-radius: 0;
+  padding: 2rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #00ff00;
+  box-shadow: 
+    0 0 20px rgba(0, 255, 0, 0.2),
+    inset 0 0 20px rgba(0, 255, 0, 0.05);
+  overflow-x: auto;
+  position: relative;
+}
+
+.prediction-output::before {
+  content: 'root@security-terminal:~$ cat scan_results.json';
+  display: block;
+  color: #00aa00;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #00ff00;
+}
+
+/* Terminal cursor effect */
+.prediction-output::after {
+  content: '█';
+  color: #00ff00;
+  animation: blink 1s infinite;
+  margin-left: 5px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .predict-container {
+    padding: 1rem;
+  }
+  
+  .predict-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .upload-section {
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .pcap-results {
+    padding: 1.5rem;
+  }
+  
+  .summary-section {
+    padding: 1.5rem;
+  }
+  
+  .connection-row {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .predict-title {
+    font-size: 2rem;
+  }
+  
+  .upload-section {
+    padding: 1.5rem;
+  }
+  
+  .results-title {
+    font-size: 2rem;
+  }
+}
