@@ -60,8 +60,10 @@ function Login() {
     formData.append('username', username);
     formData.append('password', password);
 
+    const cleanApiUrl = API_BASE_URL.replace(/\/$/, "");
+
     try {
-      const response = await axios.post(`${API_BASE_URL}/auth/token`, formData, {
+      const response = await axios.post(`${cleanApiUrl}/auth/token`, formData, {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
