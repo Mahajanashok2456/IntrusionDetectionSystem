@@ -55,7 +55,8 @@ const Predict = () => {
       );
       setPrediction(response.data);
     } catch (err) {
-      setError("Error uploading file or getting prediction.");
+      const errorMessage = err.response?.data?.detail || err.message || "Error uploading file or getting prediction.";
+      setError(errorMessage);
       console.error("Prediction error:", err);
     } finally {
       setLoading(false);
